@@ -1,0 +1,43 @@
+﻿@model ExamenFlores3.Models.ViewModel.DetallesViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "Layout";
+}
+<div id="center">
+    <div id="content">
+        <div class="post">
+            <h2 class="titulo">@Model.Dato.NombreFlor</h2>
+            <div class="entrada">
+                <h4>Procedencia:</h4>
+                <p>@Model.Dato.Origen</p>
+                <h4>Información:</h4>
+                <p>
+                    @Model.Dato.Descripcion
+                </p>
+
+                <div id="imagenes">
+                    <img title="@(Model.Dato.NombreFlor)" src="~/images/@(Model.Dato.Id).jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar">
+        <ul>
+            <li>
+                <h2>Menú</h2>
+
+                <ul>
+                    @foreach(var Flor in Model.Flores)
+                    {
+                        <li>
+                            <a href='~/detalles/@(Flor.Nombre)'>@Flor.Nombre</a>
+                        </li>
+
+                    }
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="bottom">
+</div>

@@ -1,0 +1,40 @@
+﻿@* @model IEnumerable<ExamenFlores3.Models.ViewModel.IndexViewModel>
+ *@@{
+    Layout = "Layout";
+}
+
+<div class="post">
+    <h2 class="titulo">Bienvenido a Petalos y Flores</h2>
+    <div class="entrada">
+        <p>
+            <strong>Petalos y Flores </strong>, es una página para practicar el manejo de base
+            de datos utilizando MySQL Server y ASP.NET.
+        </p>
+     
+    </div>
+    <div class="entrada">
+
+        <table id="tablaFlores" style="width: 100%;">
+            <tr style="background: pink;">
+
+                <th>Flor</th>
+                <th style="width:40%">Acción</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/images/@(item.Id).jpg" />
+                        @item.Nombre
+                    </td>
+                    <td>
+                        <a href="~/Home/Detalles/@item.{id}">Detalles</a>
+                    </td>
+                </tr>
+            }
+
+
+        </table>
+    </div>
+</div>
